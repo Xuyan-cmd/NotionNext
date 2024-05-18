@@ -122,7 +122,7 @@ const BLOG = {
     '/[prefix]/[slug]': 'LayoutSlug',
     '/[prefix]/[slug]/[...suffix]': 'LayoutSlug',
     '/signin': 'LayoutSignIn',
-    '/signup': 'LayoutSignUp'
+    '/signup': 'LayoutSignUp',
   },
 
   CAN_COPY: process.env.NEXT_PUBLIC_CAN_COPY || true, // 是否允许复制页面内容 默认允许，如果设置为false、则全栈禁止复制内容。

@@ -1,11 +1,12 @@
 import { siteConfig } from '@/lib/config'
 import { compressImage, mapImgUrl } from '@/lib/notion/mapImage'
-import { isBrowser } from '@/lib/utils'
+import { isBrowser, loadExternalResource } from '@/lib/utils'
 import mediumZoom from '@fisch0920/medium-zoom'
 import 'katex/dist/katex.min.css'
 import dynamic from 'next/dynamic'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState} from 'react'
 import { NotionRenderer } from 'react-notion-x'
+// import { loadExternalResource } from '@/lib/utils'
 
 /**
  * 整个站点的核心组件
@@ -33,6 +34,33 @@ const NotionPage = ({ post, className }) => {
     // 检测当前的url并自动滚动到对应目标
     autoScrollToTarget()
   }, [])
+
+   //引入tianliGPT
+   const [isResourcesLoaded, setResourcesLoaded] = useState(false);
+
+   const tianliKey = siteConfig('TianliGPT_KEY')
+   useEffect(() => {
+     // 并行加载CSS文件
+     if (tianliKey) {
+      loadExternalResource('/css/tianliGPT.css', 'css').then(() => {
+        setResourcesLoaded(true); // 设置资源加载完成的状态
+      })
+     }
+   }, []);
+   useEffect(() => {
+     if (isResourcesLoaded) {
+         // 当所有资源加载完成后，加载 memos.js
+         const script = document.createElement('script');
+         script.src = '/js/tianliGPT.js';
+         script.async = true;
+         document.body.appendChild(script);
+         return () => {
+             // 组件卸载时移除script
+             document.body.removeChild(script);
+         };
+     }
+   }, [isResourcesLoaded]); // 依赖于资源加载状态
+ 
 
   // 页面文章发生变化时会执行的勾子
   useEffect(() => {

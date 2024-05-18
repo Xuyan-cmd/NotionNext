@@ -2,7 +2,7 @@ import { siteConfig } from '@/lib/config'
 import dynamic from 'next/dynamic'
 import { GlobalStyle } from './GlobalStyle'
 import LA51 from './LA51'
-import TianLiGPT from './TianliGPT'
+// import TianLiGPT from './TianliGPT'
 import WebWhiz from './Webwhiz'
 
 import { CUSTOM_EXTERNAL_CSS, CUSTOM_EXTERNAL_JS } from '@/blog.config'
@@ -58,7 +58,7 @@ const ExternalPlugin = props => {
   const ANALYTICS_51LA_ID = siteConfig('ANALYTICS_51LA_ID')
   const ANALYTICS_51LA_CK = siteConfig('ANALYTICS_51LA_CK')
   const DIFY_CHATBOT_ENABLED = siteConfig('DIFY_CHATBOT_ENABLED')
-  const TIANLI_KEY = siteConfig('TianliGPT_KEY')
+  // const TIANLI_KEY = siteConfig('TianliGPT_KEY')
   const GLOBAL_JS = siteConfig('GLOBAL_JS')
   const CLARITY_ID = siteConfig('CLARITY_ID')
   const IMG_SHADOW = siteConfig('IMG_SHADOW')
@@ -144,7 +144,7 @@ const ExternalPlugin = props => {
       {!CAN_COPY && <DisableCopy />}
       {WEB_WHIZ_ENABLED && <WebWhiz />}
       {AD_WWADS_BLOCK_DETECT && <AdBlockDetect />}
-      {TIANLI_KEY && <TianLiGPT />}
+      {/* TIANLI_KEY && <TianLiGPT /> */}
       <VConsole />
       <LoadingProgress />
       <AosAnimation />
