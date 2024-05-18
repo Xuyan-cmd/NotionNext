@@ -35,7 +35,7 @@ const NotionPage = ({ post, className }) => {
     autoScrollToTarget()
   }, [])
 
-   //引入tianliGPT
+   // 引入tianliGPT
    const [isResourcesLoaded, setResourcesLoaded] = useState(false);
 
    const tianliKey = siteConfig('TianliGPT_KEY')
