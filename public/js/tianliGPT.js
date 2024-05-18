@@ -3,7 +3,7 @@ console.log("\n %c Post-Abstract-AI 开源博客文章摘要AI生成工具 %c ht
 function tianliGPT(usePjax) {
   var tianliGPTIsRunning = false;
   var tianliGPT_postSelector = '#notion-article';
-  var tianliGPT_key = '633d5445b832cb5d8e59';
+  var tianliGPT_key = 'e4ddb5c38d23a3103943';
   let tianliGPT_wordLimit = 5000;
   let tianliGPT_postURL = ['*/article/*', '*/about*'];
   function insertAIDiv(selector) {
@@ -46,7 +46,7 @@ function tianliGPT(usePjax) {
     const aiTagDiv = document.createElement('div');
     aiTagDiv.className = 'tianliGPT-tag';
     aiTagDiv.id = 'tianliGPT-tag';
-    aiTagDiv.textContent = 'BaichuanGPT';
+    aiTagDiv.textContent = '百川GPT';
     aiTitleDiv.appendChild(aiTagDiv);
 
     const aiExplanationDiv = document.createElement('div');
