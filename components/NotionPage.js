@@ -6,7 +6,7 @@ import 'katex/dist/katex.min.css'
 import dynamic from 'next/dynamic'
 import { useEffect, useRef, useState} from 'react'
 import { NotionRenderer } from 'react-notion-x'
-// import { loadExternalResource } from '@/lib/utils'
+
 
 /**
  * 整个站点的核心组件
